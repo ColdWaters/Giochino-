@@ -3,6 +3,7 @@ import csv, json
 import tkinter as tk
 from tkinter import filedialog
 
+
 def OnlyFilenames(imput): #la funzione OnlyFilenames prende in imput i percorsi dei diversi file, e ritorna una lista con solo i namefile
     place = []
     for vac in imput:
@@ -19,7 +20,7 @@ def editor(row_local): #la funzione editor permette di indentare i valori cards_
     row_local["effects"] = temp
     return row_local
 
-def GetNameFaction(imput_gnf):
+def GetNameFaction(imput_gnf): #La funziona GetNameFaction prende il nome della fazione a partire dal namefile
     temp = imput_gnf.split(" ")
     temp = temp[2].split(".")
     return temp[0].lower()
@@ -36,6 +37,7 @@ for path_in in OnlyFilenames(file_path):
     #prende la fazione dal nome del file, eliminando estensioni di file e altre porcherie. nota: tutti i file .csv devono essere nomitati secondo la loro fazione.
     faction = GetNameFaction(path_in)
     jsonFilePath = f"{faction}.js"
+
 
     #il dizionario data_out viene usato per assemblare i dati prima di essere trasferiti in JSON
     data_out = {}
@@ -54,4 +56,4 @@ for path_in in OnlyFilenames(file_path):
             data_out_2["deck"] = data_out
 
     with open(jsonFilePath, "w") as f:
-        json.dump(data_out_2, f, indent=4, separators=(". ", " = "))
+        json.dump(data_out_2, f, indent=4)
