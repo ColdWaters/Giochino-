@@ -30,7 +30,7 @@ def GetNameFaction(imput_gnf): #La funziona GetNameFaction prende il nome della 
 root = tk.Tk()
 root.withdraw()
 
-file_path = filedialog.askopenfilenames()
+file_path = filedialog.askopenfilenames(title = "Seleziona un file CSV",filetypes = (("CSV Files","*.csv"),))
 
 for path_in in OnlyFilenames(file_path):
 
