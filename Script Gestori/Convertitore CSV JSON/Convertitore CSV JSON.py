@@ -54,4 +54,4 @@ for path_in in OnlyFilenames(file_path):
             data_out_2["deck"] = data_out
 
     with open(jsonFilePath, "w") as f:
-        json.dump(data_out_2, f, indent=4)
+        json.dump(data_out_2, f, indent=4, separators=(". ", " = "))
