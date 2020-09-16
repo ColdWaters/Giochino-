@@ -39,6 +39,7 @@ for path_in in OnlyFilenames(file_path):
 
     #il dizionario data_out viene usato per assemblare i dati prima di essere trasferiti in JSON
     data_out = {}
+    data_out_2 = {}
 
     #legge il file CSV
     with open(path_in) as file_csv:
@@ -50,6 +51,7 @@ for path_in in OnlyFilenames(file_path):
         for counter in range(len(rows)):
             editor(rows[counter])
             data_out[faction] = rows
+            data_out_2["deck"] = data_out
 
     with open(jsonFilePath, "w") as f:
-        json.dump(data_out, f, indent=4)
+        json.dump(data_out_2, f, indent=4)
